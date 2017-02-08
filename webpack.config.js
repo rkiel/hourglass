@@ -1,12 +1,7 @@
 const Helper = require('webpack-config-helper');
 
 function buildConfig(config) {
-  config
-    .entryAndCommonsChunk('vendor')
-    .addRuleForBabel()
-    .addHtmlWebpackPlugin()
-    //    .addRuleForExtractCss()
-    .echo();
+  config.entry('bundle', './src/index.jsx').entryAndCommonsChunk('vendor').addRuleForBabel().addHtmlWebpackPlugin().echo();
 }
 
 module.exports = Helper.use(buildConfig);

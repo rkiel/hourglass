@@ -3580,9 +3580,9 @@ wbuf@^1.1.0, wbuf@^1.4.0:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-webpack-config-helper@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/webpack-config-helper/-/webpack-config-helper-2.0.3.tgz#5a9687172a1bd17216e31241bffcab4f814f391b"
+webpack-config-helper@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/webpack-config-helper/-/webpack-config-helper-2.0.4.tgz#abeb0c4bb9e507d912663c4b6c8cbc0c4a3d8185"
 
 webpack-dev-middleware@^1.9.0:
   version "1.10.0"
