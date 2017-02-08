@@ -1,0 +1,7 @@
+{
+  "name": "hourglass",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "rkiel <cygnus@pobox.com>",
+  "license": "MIT"
+}
