@@ -4,7 +4,6 @@
   "main": "index.js",
   "author": "rkiel <cygnus@pobox.com>",
   "license": "MIT",
-
   "scripts": {
     "clean": "rm -rf build dist",
     "start": "npm run clean && webpack-dev-server --host localhost --port 4000",
@@ -24,6 +23,7 @@
   },
   "dependencies": {
     "immutability-helper": "^2.1.1",
+    "material-ui": "^0.17.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
