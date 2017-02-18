@@ -3,11 +3,19 @@ import ReactDOM from 'react-dom';
 
 import Hourglass from './Hourglass.jsx';
 
+function cell(day) {
+  return {
+    day,
+    month: 2,
+    year: 2017,
+    hours: day*100
+  }
+}
 const rows = [
-  {code: "P1", label: "Project #1", weeklyTotal: 4000},
-  {code: "H", label: "Holiday", weeklyTotal: 0},
-  {code: "P", label: "PTO", weeklyTotal: 0},
-  {code: "T", label: "Training", weeklyTotal: 0}
+  {code: "P1", label: "Project #1", cells: [cell(7),cell(8),cell(9),cell(10),cell(11),cell(12),cell(13)], weeklyTotal: 4000},
+  {code: "H", label: "Holiday", cells: [cell(7),cell(8),cell(9),cell(10),cell(11),cell(12),cell(13)], weeklyTotal: 0},
+  {code: "P", label: "PTO", cells: [cell(7),cell(8),cell(9),cell(10),cell(11),cell(12),cell(13)], weeklyTotal: 0},
+  {code: "T", label: "Training", cells: [cell(7),cell(8),cell(9),cell(10),cell(11),cell(12),cell(13)], weeklyTotal: 0}
 ];
 
 const week = [

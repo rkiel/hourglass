@@ -14,7 +14,7 @@ import Hours from './util/Hours';
 class Hourglass extends Component {
 
   render() {
-    const cellRows = _.map(this.props.cellRows, row => (<DataCellRow key={row.code} label={row.label} total={Hours.toDollars(row.weeklyTotal)} />));
+    const cellRows = _.map(this.props.cellRows, row => (<DataCellRow key={row.code} label={row.label} cells={row.cells} total={Hours.toDollars(row.weeklyTotal)} />));
     const week = _.map(this.props.week, day => (<HeaderNumber key={day.day} label={day.label} month={day.month} day={day.day} year={day.year} />));
     const totals = _.map(this.props.week, day => (<DataNumber key={day.day} value={Hours.toDollars(day.dailyTotal)} />));
 

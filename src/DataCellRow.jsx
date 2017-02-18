@@ -1,20 +1,17 @@
 import React from 'react';
+import _ from 'lodash';
 
 import DataLabel from './DataLabel.jsx';
 import DataCell from './DataCell.jsx';
 import DataNumber from './DataNumber.jsx';
 
-function DataCellRow ({label, total}) {
+function DataCellRow ({label, total, cells}) {
+  const dataCells = _.map(cells, cell => <DataCell key={cell.day} hours={cell.hours}/>)
+
   return (
     <tr>
       <DataLabel label={label} />
-      <DataCell />
-      <DataCell />
-      <DataCell />
-      <DataCell />
-      <DataCell />
-      <DataCell />
-      <DataCell />
+      {dataCells}
       <DataNumber value={total} />
     </tr>
   );
