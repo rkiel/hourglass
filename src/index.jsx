@@ -6,6 +6,7 @@ import Header from './Header.jsx';
 import DataLabel from './DataLabel.jsx';
 import DataCell from './DataCell.jsx';
 import DataNumber from './DataNumber.jsx';
+import DataCellRow from './DataCellRow.jsx';
 import HeaderNumber from './HeaderNumber.jsx';
 import HeaderLabel from './HeaderLabel.jsx';
 
@@ -29,50 +30,10 @@ class HelloWorld extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <DataLabel label="Project #1" />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataNumber value="40.00" />
-            </tr>
-            <tr>
-              <DataLabel label="Holiday" />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataNumber value="0.00" />
-            </tr>
-            <tr>
-              <DataLabel label="PTO" />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataNumber value="0.00" />
-            </tr>
-            <tr>
-              <DataLabel label="Training" />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataCell />
-              <DataNumber value="0.00" />
-            </tr>
+            <DataCellRow label="Project #1" total="40.00" />
+            <DataCellRow label="Holiday" total="0.00" />
+            <DataCellRow label="PTO" total="0.00" />
+            <DataCellRow label="Training" total="0.00" />
             <tr>
               <DataLabel label="TOTAL" />
               <DataNumber value="0.00" />
