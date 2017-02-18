@@ -1,24 +1,34 @@
 import React from 'react';
 
-import A from './A.jsx';
+import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 
 function Header({title}) {
   return (
-    <header className="mdl-layout__header">
-      <div className="mdl-layout__header-row">
-
-        <span className="mdl-layout-title">{title}</span>
-
-        <div className="mdl-layout-spacer"></div>
-
-        <nav className="mdl-navigation mdl-layout--large-screen-only">
-          <A label="One"/>
-          <A label="Two"/>
-          <A label="Three"/>
-          <A label="Four"/>
-        </nav>
-      </div>
-    </header>
+    <Navbar inverse collapseOnSelect>
+      <Navbar.Header>
+        <Navbar.Brand>
+          <a href="#">{title}</a>
+        </Navbar.Brand>
+        <Navbar.Toggle/>
+      </Navbar.Header>
+      <Navbar.Collapse>
+        <Nav>
+          <NavItem eventKey={1} href="#">Link</NavItem>
+          <NavItem eventKey={2} href="#">Link</NavItem>
+          <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+            <MenuItem eventKey={3.1}>Action</MenuItem>
+            <MenuItem eventKey={3.2}>Another action</MenuItem>
+            <MenuItem eventKey={3.3}>Something else here</MenuItem>
+            <MenuItem divider/>
+            <MenuItem eventKey={3.3}>Separated link</MenuItem>
+          </NavDropdown>
+        </Nav>
+        <Nav pullRight>
+          <NavItem eventKey={1} href="#">Link Right</NavItem>
+          <NavItem eventKey={2} href="#">Link Right</NavItem>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 }
 

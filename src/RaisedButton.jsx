@@ -1,10 +1,12 @@
 import React from 'react';
 
+import {Button} from 'react-bootstrap';
+
 function RaisedButton({onClick, label}) {
   return (
-    <button onClick={onClick} className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+    <Button onClick={onClick}>
       {label}
-    </button>
+    </Button>
   );
 }
 
