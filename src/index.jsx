@@ -3,21 +3,13 @@ import ReactDOM from 'react-dom';
 import {ButtonToolbar, ButtonGroup, Button, Glyphicon, Table, FormControl, Grid, Row, Col} from 'react-bootstrap';
 
 import Header from './Header.jsx';
-import RaisedButton from './RaisedButton.jsx';
+import DataLabel from './DataLabel.jsx';
+import DataCell from './DataCell.jsx';
+import DataNumber from './DataNumber.jsx';
+import HeaderNumber from './HeaderNumber.jsx';
+import HeaderLabel from './HeaderLabel.jsx';
 
 class HelloWorld extends Component {
-  constructor() {
-    super();
-    this.state = {
-      buttons: []
-    };
-  }
-
-  addButton() {
-    const buttons = this.state.buttons.concat(<RaisedButton key={this.state.buttons.length} label={this.state.buttons.length}/>);
-    this.setState({buttons});
-  }
-
   render() {
     return (
       <div style={{margin: '15px'}}>
@@ -25,196 +17,72 @@ class HelloWorld extends Component {
         <Table bordered condensed hover>
           <thead>
             <tr>
-              <th>Account</th>
-              <th style={{textAlign: 'right'}}>2/7<br />Sunday</th>
-              <th style={{textAlign: 'right'}}>2/8<br />Monday</th>
-              <th style={{textAlign: 'right'}}>2/9<br />Tuesday</th>
-              <th style={{textAlign: 'right'}}>2/10<br />Wednesday</th>
-              <th style={{textAlign: 'right'}}>2/11<br />Thursday</th>
-              <th style={{textAlign: 'right'}}>2/12<br />Friday</th>
-              <th style={{textAlign: 'right'}}>2/13<br />Saturday</th>
-              <th style={{textAlign: 'right'}}>TOTAL</th>
+              <HeaderLabel label="Account" />
+              <HeaderNumber label="Sunday" month={2} day={7} />
+              <HeaderNumber label="Monday" month={2} day={8} />
+              <HeaderNumber label="Tuesday" month={2} day={9} />
+              <HeaderNumber label="Wednesday" month={2} day={10} />
+              <HeaderNumber label="Thurday" month={2} day={11} />
+              <HeaderNumber label="Friday" month={2} day={12} />
+              <HeaderNumber label="Saturday" month={2} day={13} />
+              <HeaderNumber label="TOTAL" />
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>
-                <div style={{whiteSpace: 'nowrap'}}>
-                  Project #1
-                </div>
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <div style={{whiteSpace: 'nowrap', textAlign: 'right'}}>
-                  45.00
-                </div>
-              </td>
+              <DataLabel label="Project #1" />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataNumber value="40.00" />
             </tr>
             <tr>
-              <td>
-                <div style={{whiteSpace: 'nowrap'}}>
-                  Holiday
-                </div>
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <div style={{whiteSpace: 'nowrap', textAlign: 'right'}}>
-                  45.00
-                </div>
-              </td>
+              <DataLabel label="Holiday" />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataNumber value="0.00" />
             </tr>
             <tr>
-              <td>
-                <div style={{whiteSpace: 'nowrap'}}>
-                  PTO
-                </div>
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <div style={{whiteSpace: 'nowrap', textAlign: 'right'}}>
-                  45.00
-                </div>
-              </td>
+              <DataLabel label="PTO" />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataNumber value="0.00" />
             </tr>
             <tr>
-              <td>
-                <div style={{whiteSpace: 'nowrap'}}>
-                  Training
-                </div>
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <FormControl  style={{textAlign: 'right'}} type="text"  maxLength={5} />
-              </td>
-              <td>
-                <div style={{whiteSpace: 'nowrap', textAlign: 'right'}}>
-                  45.00
-                </div>
-              </td>
+              <DataLabel label="Training" />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataCell />
+              <DataNumber value="0.00" />
             </tr>
             <tr>
-              <td>
-                <div style={{whiteSpace: 'nowrap'}}>
-                  TOTAL
-                </div>
-              </td>
-              <td>
-                <div style={{whiteSpace: 'nowrap', textAlign: 'right'}}>
-                  0.00
-                </div>
-              </td>
-              <td>
-                <div style={{whiteSpace: 'nowrap', textAlign: 'right'}}>
-                  8.00
-                </div>
-              </td>
-              <td>
-                <div style={{whiteSpace: 'nowrap', textAlign: 'right'}}>
-                  8.00
-                </div>
-              </td>
-              <td>
-                <div style={{whiteSpace: 'nowrap', textAlign: 'right'}}>
-                  8.00
-                </div>
-              </td>
-              <td>
-                <div style={{whiteSpace: 'nowrap', textAlign: 'right'}}>
-                  8.00
-                </div>
-              </td>
-              <td>
-                <div style={{whiteSpace: 'nowrap', textAlign: 'right'}}>
-                  8.00
-                </div>
-              </td>
-              <td>
-                <div style={{whiteSpace: 'nowrap', textAlign: 'right'}}>
-                  0.00
-                </div>
-              </td>
-              <td>
-                <div style={{whiteSpace: 'nowrap', textAlign: 'right'}}>
-                  45.00
-                </div>
-              </td>
+              <DataLabel label="TOTAL" />
+              <DataNumber value="0.00" />
+              <DataNumber value="8.00" />
+              <DataNumber value="8.00" />
+              <DataNumber value="8.00" />
+              <DataNumber value="8.00" />
+              <DataNumber value="8.00" />
+              <DataNumber value="0.00" />
+              <DataNumber value="40.00" />
             </tr>
           </tbody>
         </Table>
