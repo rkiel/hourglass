@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+
+import store from './store';
 
 import Hourglass from './Hourglass.jsx';
 
@@ -22,4 +25,6 @@ const grandTotal = 4500;
 
 
 ReactDOM.render(
-  <Hourglass cellRows={rows} week={week} grandTotal={grandTotal}/>, document.getElementById('app'));
+  <Provider store={store}>
+    <Hourglass cellRows={rows} week={week} grandTotal={grandTotal}/>
+  </Provider>, document.getElementById('app'));
