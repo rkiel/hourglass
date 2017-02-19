@@ -44,10 +44,20 @@ function prevWeek(nowWeek) {
   return lastSaturday;
 }
 
+function isSunday(mDate) {
+  return mDate.day() === 0;
+}
+
+function daysOfTheWeek() {
+  return ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+}
+
 const Calendar = {
   nowWeek,
   prevWeek,
-  nextWeek
+  nextWeek,
+  isSunday,
+  daysOfTheWeek
 };
 
 export default Calendar;
