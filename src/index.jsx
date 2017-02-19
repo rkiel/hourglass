@@ -26,5 +26,5 @@ const grandTotal = 4500;
 
 ReactDOM.render(
   <Provider store={store}>
-    <Hourglass cellRows={rows} week={week} grandTotal={grandTotal}/>
+    <Hourglass cellRows={rows} grandTotal={grandTotal}/>
   </Provider>, document.getElementById('app'));

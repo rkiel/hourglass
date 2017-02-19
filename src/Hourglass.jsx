@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import _ from 'lodash';
 import {Table} from 'react-bootstrap';
+import {connect} from 'react-redux';
 
 import Header from './Header.jsx';
 import DataLabel from './DataLabel.jsx';
@@ -43,4 +44,14 @@ class Hourglass extends Component {
   }
 }
 
-export default Hourglass;
+function mapStateToProps(state) {
+  return {
+    week: state.week
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Hourglass);
