@@ -16,8 +16,8 @@ class Hourglass extends Component {
 
   render() {
     const cellRows = _.map(this.props.cellRows, row => (<DataCellRow key={row.code} label={row.label} cells={row.cells} total={Hours.toDollars(row.weeklyTotal)} />));
-    const week = _.map(this.props.week, day => (<HeaderNumber key={day.mDate.date()} label={day.mDate.format('dddd')} mDate={day.mDate} />));
-    const totals = _.map(this.props.week, day => (<DataNumber key={day.mDate.date()} value={Hours.toDollars(day.dailyTotal)} />));
+    const week = _.map(this.props.nowWeek, day => (<HeaderNumber key={day.date()} label={day.format('dddd')} mDate={day} />));
+    const totals = _.map(this.props.week, day => (<DataNumber key={day.date()} value={Hours.toDollars(day.dailyTotal)} />));
 
     return (
       <div style={{margin: '15px'}}>
@@ -46,7 +46,7 @@ class Hourglass extends Component {
 
 function mapStateToProps(state) {
   return {
-    week: state.week
+    nowWeek: state.week.nowWeek
   };
 }
 

@@ -32,8 +32,22 @@ function nowWeek(now = moment()) {
   return toFullWeek(sunday.year(), sunday.month(), sunday.date());
 }
 
+function nextWeek(nowWeek) {
+  const endOfWeek = nowWeek[nowWeek.length-1];
+  const nextSunday = endOfWeek.clone().add(1, 'd');
+  return nextSunday;
+}
+
+function prevWeek(nowWeek) {
+  const beginOfWeek = nowWeek[0];
+  const lastSaturday = beginOfWeek.clone().subtract(1, 'd');
+  return lastSaturday;
+}
+
 const Calendar = {
-  nowWeek
+  nowWeek,
+  prevWeek,
+  nextWeek
 };
 
 export default Calendar;
