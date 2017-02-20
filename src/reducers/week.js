@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 import Calendar from '../util/Calendar';
 
-function dotwToEmpty(dotw, index) {
+function mapDotwToEmpty(dotw, index) {
   return {
     day: index,
     label: dotw,
@@ -10,7 +10,7 @@ function dotwToEmpty(dotw, index) {
   };
 }
 
-const replaceDayIn = _.curry(function(week, day) {
+const replaceEachDayIn = _.curry(function(week, day) {
   week[day.day()] = day;
 });
 
@@ -19,8 +19,8 @@ function initialState(startDate) {
   const prevWeek = Calendar.prevWeek(nowWeek);
   const nextWeek = Calendar.nextWeek(nowWeek);
 
-  const week = _.map(Calendar.daysOfTheWeek(), dotwToEmpty);
-  _.each(nowWeek, replaceDayIn(week));
+  const week = _.map(Calendar.daysOfTheWeek(), mapDotwToEmpty);
+  _.each(nowWeek, replaceEachDayIn(week));
 
   return {
     nowWeek: week,
