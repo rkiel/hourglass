@@ -16,15 +16,11 @@ import Hours from './util/Hours';
 import Calendar from './util/Calendar';
 
 function toHeader(nowWeek) {
-  const header = _.map(Calendar.daysOfTheWeek(), (dotw,index) => <HeaderEmpty key={index} label={dotw} />);
-  _.each(nowWeek, day => header[day.day()] = <HeaderNumber key={day.day()} label={day.format('dddd')} mDate={day} />);
-  return header;
+  return _.map(nowWeek, (day) => day.isEmpty ? <HeaderEmpty key={day.day} label={day.label} /> : <HeaderNumber key={day.day()} label={day.format('dddd')} mDate={day} />);
 }
 
 function toFooter(nowWeek) {
-  const footer = _.map(Calendar.daysOfTheWeek(), (dotw, index) => <DataEmpty key={index} />);
-  _.each(nowWeek, day => footer[day.day()] = <DataNumber key={day.day()} value={Hours.toDollars(day.dailyTotal)} />);
-  return footer;
+  return _.map(nowWeek, (day) => day.isEmpty ? <DataEmpty key={day.day} /> : <DataNumber key={day.day()} value={Hours.toDollars(day.dailyTotal)} />);
 }
 
 class Hourglass extends Component {
