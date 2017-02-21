@@ -15,20 +15,24 @@ import HeaderEmpty from './HeaderEmpty.jsx';
 import Hours from './util/Hours';
 import Calendar from './util/Calendar';
 
-function toHeader(nowWeek) {
-  return _.map(nowWeek, (day) => day.isEmpty ? <HeaderEmpty key={day.day} label={day.label} /> : <HeaderNumber key={day.day()} label={day.format('dddd')} mDate={day} />);
+function mapDayToHeader(day) {
+  return day.isEmpty ? <HeaderEmpty key={day.day} label={day.label} /> : <HeaderNumber key={day.day()} label={day.format('dddd')} mDate={day} />;
 }
 
-function toFooter(nowWeek) {
-  return _.map(nowWeek, (day) => day.isEmpty ? <DataEmpty key={day.day} /> : <DataNumber key={day.day()} value={Hours.toDollars(day.dailyTotal)} />);
+function mapDayToData(day) {
+  return day.isEmpty ? <DataEmpty key={day.day} /> : <DataNumber key={day.day()} value={Hours.toDollars(day.dailyTotal)} />;
+}
+
+function mapAccountToCellRow(account) {
+  return <DataCellRow key={account.code} label={account.label} cells={account.cells} total={Hours.toDollars(account.weeklyTotal)} />;
 }
 
 class Hourglass extends Component {
 
   render() {
-    const cellRows = _.map(this.props.accounts, row => (<DataCellRow key={row.code} label={row.label} cells={row.cells} total={Hours.toDollars(row.weeklyTotal)} />));
-    const week = toHeader(this.props.nowWeek);
-    const totals = toFooter(this.props.nowWeek);
+    const cellRows = _.map(this.props.accounts, mapAccountToCellRow);
+    const week = _.map(this.props.nowWeek, mapDayToHeader);
+    const totals = _.map(this.props.nowWeek, mapDayToData);
 
     return (
       <div style={{margin: '15px'}}>
