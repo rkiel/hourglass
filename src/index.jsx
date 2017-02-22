@@ -4,11 +4,11 @@ import {Provider} from 'react-redux';
 
 import store from './store';
 
-import Hourglass from './Hourglass.jsx';
+import WeekPage from './pages/WeekPage/WeekPage.jsx';
 
 const grandTotal = 4500;
 
 ReactDOM.render(
   <Provider store={store}>
-    <Hourglass grandTotal={grandTotal}/>
+    <WeekPage grandTotal={grandTotal}/>
   </Provider>, document.getElementById('app'));

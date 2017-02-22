@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 
-import {nextWeek, prevWeek} from './actions/week';
+import {nextWeek, prevWeek} from '../../actions/week';
 
 class Header extends Component {
   render() {

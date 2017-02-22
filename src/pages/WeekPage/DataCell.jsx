@@ -2,7 +2,7 @@ import React from 'react';
 
 import {FormControl} from 'react-bootstrap';
 
-import Hours from './util/Hours';
+import Hours from '../../util/Hours';
 
 function handleChange(e) {
   let userInput = e.target.value;
