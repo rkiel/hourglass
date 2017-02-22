@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 
 import store from './store';
 
-import WeekPage from './pages/WeekPage/WeekPage.jsx';
+import WeekPage from './pages/week/WeekPage.jsx';
 
 const grandTotal = 4500;
 
