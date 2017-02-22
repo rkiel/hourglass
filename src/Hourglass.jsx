@@ -37,6 +37,7 @@ class Hourglass extends Component {
     return (
       <div style={{margin: '15px'}}>
         <Header title="Hourglass"/>
+        <h3 style={{textAlign: 'center', margin: '20px'}}>{this.props.month}</h3>
         <Table bordered condensed hover>
           <thead>
             <tr>
@@ -62,7 +63,8 @@ class Hourglass extends Component {
 function mapStateToProps(state) {
   return {
     accounts: state.accounts,
-    nowWeek: state.week.nowWeek
+    nowWeek: state.week.nowWeek,
+    month: state.week.month
   };
 }
 

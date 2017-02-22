@@ -19,13 +19,16 @@ function initialState(startDate) {
   const prevWeek = Calendar.prevWeek(nowWeek);
   const nextWeek = Calendar.nextWeek(nowWeek);
 
+  const month = nowWeek[0].format('MMMM YYYY');
+
   const week = _.map(Calendar.daysOfTheWeek(), mapDotwToEmpty);
   _.each(nowWeek, replaceEachDayIn(week));
 
   return {
     nowWeek: week,
     prevWeek,
-    nextWeek
+    nextWeek,
+    month
   };
 }
 
