@@ -3,7 +3,8 @@ import _ from 'lodash';
 import {Table} from 'react-bootstrap';
 import {connect} from 'react-redux';
 
-import Header from './Header.jsx';
+import SimpleLayout from '../../layouts/simple/Simple.jsx';
+
 import DataLabel from './DataLabel.jsx';
 import DataNumber from './DataNumber.jsx';
 import DataEmpty from './DataEmpty.jsx';
@@ -35,8 +36,7 @@ class Page extends Component {
     const totals = _.map(this.props.nowWeek, mapDayToData);
 
     return (
-      <div style={{margin: '15px'}}>
-        <Header title="Hourglass"/>
+      <SimpleLayout>
         <h3 style={{textAlign: 'center', margin: '20px'}}>{this.props.month}</h3>
         <Table bordered condensed hover>
           <thead>
@@ -55,8 +55,8 @@ class Page extends Component {
             </tr>
           </tbody>
         </Table>
-      </div>
-    )
+      </SimpleLayout>
+    );
   }
 }
 

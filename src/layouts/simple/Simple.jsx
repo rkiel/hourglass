@@ -8,6 +8,7 @@ import {nextWeek, prevWeek} from '../../actions/week';
 class Header extends Component {
   render() {
     return (
+    <div style={{margin: '15px'}}>
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
@@ -33,7 +34,9 @@ class Header extends Component {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-    );
+      {this.props.children}
+    </div>
+      );
   }
 }
 
