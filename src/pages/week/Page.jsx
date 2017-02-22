@@ -27,7 +27,7 @@ function mapAccountToCellRow(account) {
   return <DataCellRow key={account.code} label={account.label} cells={account.cells} total={Hours.toDollars(account.weeklyTotal)} />;
 }
 
-class WeekPage extends Component {
+class Page extends Component {
 
   render() {
     const cellRows = _.map(this.props.accounts, mapAccountToCellRow);
@@ -72,4 +72,4 @@ function mapDispatchToProps(dispatch) {
   return {};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(WeekPage);
+export default connect(mapStateToProps, mapDispatchToProps)(Page);
