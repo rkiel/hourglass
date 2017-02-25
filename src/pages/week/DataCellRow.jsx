@@ -3,14 +3,15 @@ import _ from 'lodash';
 
 import DataLabel from './DataLabel.jsx';
 import DataCell from './DataCell.jsx';
+import DataEmpty from './DataEmpty.jsx';
 import DataNumber from './DataNumber.jsx';
 
-function mapCellToData(cell) {
-  return <DataCell key={cell.mDate.date()} hours={cell.hours}/>;
+function mapCellToData(day) {
+  return day.isEmpty ? <DataEmpty /> : <DataCell key={day.date()} hours={800}/>;
 }
 
-function DataCellRow ({label, total, cells}) {
-  const dataCells = _.map(cells, mapCellToData);
+function DataCellRow ({label, total, nowWeek}) {
+  const dataCells = _.map(nowWeek, mapCellToData);
 
   return (
     <tr>

@@ -1,8 +1,9 @@
 import {combineReducers} from 'redux';
 
-import week from './week';
 import accounts from './accounts';
+import month from './month';
+import week from './week';
 
-const reducers = combineReducers({accounts, week});
+const reducers = combineReducers({accounts, month, week});
 
 export default reducers;

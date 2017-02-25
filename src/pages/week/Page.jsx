@@ -26,9 +26,9 @@ function mapDayToData(day) {
   return day.isEmpty ? <DataEmpty key={day.day} /> : <DataNumber key={day.day()} value={Hours.toDollars(day.dailyTotal)} />;
 }
 
-function mapAccountToCellRow(account) {
-  return <DataCellRow key={account.code} label={account.label} cells={account.cells} total={Hours.toDollars(account.weeklyTotal)} />;
-}
+const mapAccountToCellRow = _.curry(function(nowWeek, account) {
+  return <DataCellRow key={account.code} label={account.label} nowWeek={nowWeek} total={Hours.toDollars(account.weeklyTotal)} />;
+});
 
 class Page extends Component {
 
@@ -37,13 +37,13 @@ class Page extends Component {
   }
 
   render() {
-    const cellRows = _.map(this.props.accounts, mapAccountToCellRow);
+    const cellRows = _.map(this.props.accounts, mapAccountToCellRow(this.props.nowWeek));
     const week = _.map(this.props.nowWeek, mapDayToHeader);
     const totals = _.map(this.props.nowWeek, mapDayToData);
 
     return (
       <SimpleLayout>
-        <h3 style={{textAlign: 'center', margin: '20px'}}>{this.props.month}</h3>
+        <h3 style={{textAlign: 'center', margin: '20px'}}>{this.props.monthLabel}</h3>
         <Table bordered condensed hover>
           <thead>
             <tr>
@@ -70,7 +70,7 @@ function mapStateToProps(state) {
   return {
     accounts: state.accounts,
     nowWeek: state.week.nowWeek,
-    month: state.week.month
+    monthLabel: state.week.month
   };
 }
 
