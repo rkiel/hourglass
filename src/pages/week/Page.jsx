@@ -16,6 +16,8 @@ import HeaderEmpty from './HeaderEmpty.jsx';
 import Hours from '../../util/Hours';
 import Calendar from '../../util/Calendar';
 
+import {accountAdd} from '../../actions/account';
+
 function mapDayToHeader(day) {
   return day.isEmpty ? <HeaderEmpty key={day.day} label={day.label} /> : <HeaderNumber key={day.day()} label={day.format('dddd')} mDate={day} />;
 }
@@ -29,6 +31,10 @@ function mapAccountToCellRow(account) {
 }
 
 class Page extends Component {
+
+  componentDidMount() {
+    _.each(this.props.initialAccounts, account => this.props.addAccount(account));
+  }
 
   render() {
     const cellRows = _.map(this.props.accounts, mapAccountToCellRow);
@@ -69,7 +75,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    addAccount: account => dispatch(accountAdd(account))
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Page);

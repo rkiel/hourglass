@@ -32,7 +32,6 @@ function initialState(startDate) {
   };
 }
 
-
 function week(state = initialState(), action) {
    switch (action.type) {
 
