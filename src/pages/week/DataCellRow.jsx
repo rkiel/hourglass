@@ -7,7 +7,7 @@ import DataEmpty from './DataEmpty.jsx';
 import DataNumber from './DataNumber.jsx';
 
 function mapCellToData(day) {
-  return day.isEmpty ? <DataEmpty /> : <DataCell key={day.date()} hours={800}/>;
+  return day.isEmpty ? <DataEmpty key={day.day+31} /> : <DataCell key={day.date()} hours={800}/>;
 }
 
 function DataCellRow ({label, total, nowWeek}) {
