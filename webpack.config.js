@@ -6,8 +6,9 @@ function buildConfig(config) {
   .entryAndCommonsChunk('vendor')
   .addRuleForBabel()
   .addHtmlWebpackPlugin()
-  .addRuleForCssAndStyle()
+  .addRuleForExtractCss()
   .echo();
 }
+
 
 module.exports = Helper.use(buildConfig);
